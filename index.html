@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Garfield Characters</title>
+</head>
+
+<body>
+
+<h2>Select a Character</h2>
+
+<!-- Selection Box -->
+<select id="characterSelect"></select>
+
+<br><br>
+
+<!-- Image Display -->
+<img id="characterImage" src="images/Garfield.jpg" width="300">
+
+<script>
+
+// Character list
+const characters = ["Garfield", "Odie", "Nermal", "Pooky", "Jon"];
+
+// Get the select element
+const selectBox = document.getElementById("characterSelect");
+
+// Fill the selection box
+characters.forEach(function(character){
+    let option = document.createElement("option");
+    option.value = character;
+    option.text = character;
+    selectBox.appendChild(option);
+});
+
+// Change image when selection changes
+selectBox.addEventListener("change", function(){
+    let selectedCharacter = selectBox.value;
+    document.getElementById("characterImage").src =
+        "images/" + selectedCharacter + ".jpg";
+});
+
+</script>
+
+</body>
+</html>
